@@ -31,7 +31,7 @@ router.get('/get',auth.authenticateToken,(req,res,next) =>{
     })
 })
 
-//DLC megváltoztatás
+//DLC frissítés
 router.patch('/update',auth.authenticateToken,checkRole.checkRole,(req,res,next) =>{
     let animal = req.body;
     var query = "update dlc set name=? where id=?";
