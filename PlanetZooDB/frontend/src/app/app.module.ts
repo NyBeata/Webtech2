@@ -14,6 +14,7 @@ import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [	
     AppComponent,
@@ -21,7 +22,8 @@ import { SignupComponent } from './signup/signup.component';
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
    ],
   imports: [
     BrowserModule,
