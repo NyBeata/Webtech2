@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { response } = require('express');
+//const { response } = require('express');
 const jwt = require('jsonwebtoken');
 
 //A token létezik a header-ben vagy nem

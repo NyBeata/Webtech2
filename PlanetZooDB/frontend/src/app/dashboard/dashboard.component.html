@@ -1,0 +1,27 @@
+<body>
+    <mat-card>
+        <b><span>Dashboard</span></b>
+    </mat-card>
+    <br>
+    <div class="'row">
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Total DLC:</h2>
+                    <h1 class="title">{{ data?.dlc }}</h1>
+                    <p><button class="button" [routerLink]="['/pz/dlc']">View DLC</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title">Total Animal:</h2>
+                    <h1 class="title">{{ data?.animal }}</h1>
+                    <p><button class="button" [routerLink]="['/pz/animal']">View Animal</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -12,19 +12,19 @@ import { SharedModule } from './shared/shared.module';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     HomeComponent,
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
     SignupComponent,
-    LoginComponent
-   ],
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,9 +34,9 @@ import { LoginComponent } from './login/login.component';
     MaterialModule,
     FlexLayoutModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
