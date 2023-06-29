@@ -7,7 +7,6 @@ var checkRole = require("../services/checkRole");
 //Új DLC hozzáadás
 router.post(
   "/add",
-  auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
     let dlc = req.body;
@@ -23,7 +22,7 @@ router.post(
 );
 
 //DLC-k kilistázása
-router.get("/get", auth.authenticateToken, (req, res, next) => {
+router.get("/get", (req, res, next) => {
   var query = "select *from dlc order by name";
   connection.query(query, (err, results) => {
     if (!err) {
@@ -37,7 +36,6 @@ router.get("/get", auth.authenticateToken, (req, res, next) => {
 //DLC frissítés
 router.patch(
   "/update",
-  auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
     let animal = req.body;
