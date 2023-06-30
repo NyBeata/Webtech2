@@ -14,6 +14,8 @@ import { ConfirmationComponent } from './dialog/confirmation/confirmation.compon
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 import { ManageDlcComponent } from './manage-dlc/manage-dlc.component';
 import { DlcComponent } from './dialog/dlc/dlc.component';
+import { ManageAnimalComponent } from './manage-animal/manage-animal.component';
+import { AnimalComponent } from './dialog/animal/animal.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,9 @@ import { DlcComponent } from './dialog/dlc/dlc.component';
     ConfirmationComponent,
     ChangePasswordComponent,
     ManageDlcComponent,
-    DlcComponent    
+    DlcComponent,
+    ManageAnimalComponent,
+    AnimalComponent    
   ]
 })
 export class MaterialComponentsModule {}

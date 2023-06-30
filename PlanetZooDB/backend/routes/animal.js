@@ -5,7 +5,7 @@ var auth = require("../services/authentication");
 var checkRole = require("../services/checkRole");
 
 //Új állat hozzáadás
-router.post("/add", auth.authenticateToken, checkRole.checkRole, (req, res) => {
+router.post("/add", checkRole.checkRole, (req, res) => {
   let animal = req.body;
   var query =
     "insert into animal (name,dlcId,description,status) values(?,?,?,'true')";
@@ -23,7 +23,7 @@ router.post("/add", auth.authenticateToken, checkRole.checkRole, (req, res) => {
 });
 
 //Állatok kilistázása
-router.get("/get", auth.authenticateToken, (req, res, next) => {
+router.get("/get", (req, res, next) => {
   var query =
     "select a.id,a.name,a.description,a.status,d.id as dlcId,d.name as dlcName from animal as a INNER JOIN dlc as d where a.dlcId = d.id";
   connection.query(query, (err, results) => {
@@ -36,7 +36,7 @@ router.get("/get", auth.authenticateToken, (req, res, next) => {
 });
 
 //Állatok DLC szerinti kilistázása
-router.get("/getByDlc/:id", auth.authenticateToken, (req, res, next) => {
+router.get("/getByDlc/:id", (req, res, next) => {
   const id = req.params.id;
   var query = "select id,name from animal where dlcId=? and status='true'";
   connection.query(query, [id], (err, results) => {
@@ -49,7 +49,7 @@ router.get("/getByDlc/:id", auth.authenticateToken, (req, res, next) => {
 });
 
 //Állat id-ja alapján kiválasztás
-router.get("/getById/:id", auth.authenticateToken, (req, res, next) => {
+router.get("/getById/:id", (req, res, next) => {
   const id = req.params.id;
   var query = "select id,name,description from animal where id=?";
   connection.query(query, [id], (err, results) => {
@@ -64,7 +64,6 @@ router.get("/getById/:id", auth.authenticateToken, (req, res, next) => {
 //Állat frissítés
 router.patch(
   "/update",
-  auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
     let animal = req.body;
@@ -91,7 +90,6 @@ router.patch(
 //Állat törlés
 router.delete(
   "/delete/:id",
-  auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
     const id = req.params.id;
@@ -112,7 +110,6 @@ router.delete(
 //Státusz frissítés
 router.patch(
   "/updateStatus",
-  auth.authenticateToken,
   checkRole.checkRole,
   (req, res, next) => {
     let user = req.body;

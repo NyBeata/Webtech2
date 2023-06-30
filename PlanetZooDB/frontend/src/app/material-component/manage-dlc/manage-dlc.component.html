@@ -1,13 +1,6 @@
 <mat-card>
   <b><span>Manage DLC</span></b>
-  <button
-    mat-flat-button
-    color="primary"
-    class="float-right"
-    (click)="handleAddAction()"
-  >
-    Add DLC
-  </button>
+  <button mat-flat-button color="primary" class="float-right" (click)="handleAddAction()">Add DLC</button>
 </mat-card>
 <hr />
 <mat-card>
@@ -27,12 +20,7 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element" class="action-link">
-        <button
-          mat-icon-button
-          color="primary"
-          matTooltip="Edit"
-          (click)="handleEditAction(element)"
-        >
+        <button mat-icon-button color="primary" matTooltip="Edit" (click)="handleEditAction(element)">
           <mat-icon>edit</mat-icon>
         </button>
       </td>

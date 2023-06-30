@@ -11,14 +11,9 @@
         <mat-form-field appearance="fill" fxFlex>
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" required />
-          <mat-error
-            *ngIf="
-              dlcForm.controls.name.touched && dlcForm.controls.name.invalid
-            "
-          >
+          <mat-error *ngIf="dlcForm.controls.name.touched && dlcForm.controls.name.invalid">
             <span *ngIf="dlcForm.controls.name.errors.required"
-              >This field is mandatory</span
-            >
+              >This field is mandatory</span>
           </mat-error>
         </mat-form-field>
       </div>
@@ -27,14 +22,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit"
-    (click)="handleSubmit()"
-    [disabled]="!(dlcForm.valid && dlcForm.dirty)"
-  >
-    {{ action }}
-  </button>
+  <button mat-raised-button color="primary" type="submit"(click)="handleSubmit()"
+    [disabled]="!(dlcForm.valid && dlcForm.dirty)">{{ action }}</button>
   <button mat-raised-button color="primary" mat-dialog-close="">Close</button>
 </mat-dialog-actions>

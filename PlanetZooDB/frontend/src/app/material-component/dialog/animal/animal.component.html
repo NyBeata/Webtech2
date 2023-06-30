@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">{{ dialogData.action }} Animal</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="animalForm">
+        <div fxFlex fxLayput="column">
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" required>
+                    <mat-error *ngIf="animalForm.controls.name.touched && animalForm.controls.name.invalid">
+                        <span *ngIf="animalForm.controls.name.errors.required">This field is mandatory</span>
+                        <span *ngIf="animalForm.controls.name.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>DLC</mat-label>
+                    <mat-select formControlName="dlcId">
+                        <mat-option *ngFor="let dlc of dlcs" [value]="dlc.id">{{ dlc.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="description" required>
+                    <mat-error *ngIf="animalForm.controls.description.touched && animalForm.controls.description.invalid">
+                        <span *ngIf="animalForm.controls.description.errors.required">This field is mandatory</span>
+                        <span *ngIf="animalForm.controls.description.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(animalForm.valid && animalForm.dirty)">{{ action }}</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>
